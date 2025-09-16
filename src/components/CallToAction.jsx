@@ -41,7 +41,7 @@ const CostItem = ({ label, value }) => (
   </div>
 );
 
-export default function App() {
+export function CallToAction() {
   // Your provided cost breakdown
   const costs = {
     baseSalary: [50000, 60000],
@@ -191,4 +191,5 @@ export default function App() {
     </section>
   )
 }
+
 
