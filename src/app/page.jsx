@@ -7,6 +7,7 @@ import { Pricing } from '@/components/Pricing'
 import { PrimaryFeatures } from '@/components/PrimaryFeatures'
 import { SecondaryFeatures } from '@/components/SecondaryFeatures'
 import { Testimonials } from '@/components/Testimonials'
+import { ROICalculator } from '@/components/ROICalculator
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         <PrimaryFeatures />
         <SecondaryFeatures />
         <CallToAction />
+        <ROICalculator />
         <Testimonials />
         <Pricing />
         <Faqs />
