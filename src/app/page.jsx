@@ -7,7 +7,7 @@ import { PrimaryFeatures } from '@/components/PrimaryFeatures'
 import { SecondaryFeatures } from '@/components/SecondaryFeatures'
 import { ROICalculator } from '@/components/ROICalculator'
 import { SoftOffer } from '@/components/SoftOffer'
-import { Pricing } from '@components/Pricing'
+import { Pricing } from '@/components/Pricing'
 
 export default function Home() {
   return (
