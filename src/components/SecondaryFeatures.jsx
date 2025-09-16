@@ -227,9 +227,9 @@ function FeaturesDesktop() {
                   <div className="w-full max-w-3xl mx-auto overflow-hidden rounded-xl bg-white shadow-lg ring-1 shadow-slate-900/5 ring-slate-500/10 p-8">
                     <div className="mb-6">
                       <h3 className="text-2xl font-display font-semibold text-slate-900">
-                        {feature.name === 'Perfect Fit' && '✅ You're exactly who we want to work with'}
+                        {feature.name === 'Perfect Fit' && '✅ You\'re exactly who we want to work with'}
                         {feature.name === 'Good Fit' && '👍 We can probably help you'}
-                        {feature.name === 'Not For You' && '🛑 Let's not waste each other's time'}
+                        {feature.name === 'Not For You' && '🛑 Let\'s not waste each other's time'}
                       </h3>
                     </div>
                     <div className="grid md:grid-cols-2 gap-6">
