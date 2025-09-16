@@ -229,7 +229,7 @@ function FeaturesDesktop() {
                       <h3 className="text-2xl font-display font-semibold text-slate-900">
                         {feature.name === 'Perfect Fit' && '✅ You\'re exactly who we want to work with'}
                         {feature.name === 'Good Fit' && '👍 We can probably help you'}
-                        {feature.name === 'Not For You' && '🛑 Let\'s not waste each other's time'}
+                        {feature.name === 'Not For You' && '🛑 Let\'s not waste each other\'s time'}
                       </h3>
                     </div>
                     <div className="grid md:grid-cols-2 gap-6">
@@ -263,13 +263,13 @@ function FeaturesDesktop() {
                         <h4 className="font-semibold text-slate-900 mb-4">What happens next:</h4>
                         <div className="prose prose-sm text-slate-600">
                           {feature.name === 'Perfect Fit' && (
-                            <p>Book a reality check call. We'll dive deep into your sales process, ICP, and goals. If we both say yes, you'll be booking qualified meetings within 30 days.</p>
+                            <p>Book a reality check call. We\'ll dive deep into your sales process, ICP, and goals. If we both say yes, you\'ll be booking qualified meetings within 30 days.</p>
                           )}
                           {feature.name === 'Good Fit' && (
-                            <p>Let's talk. We might need to adjust our approach or timeline, but if you're committed to quality over quantity, we can make it work.</p>
+                            <p>Let\'s talk. We might need to adjust our approach or timeline, but if you\'re committed to quality over quantity, we can make it work.</p>
                           )}
                           {feature.name === 'Not For You' && (
-                            <p>We're not the right fit, and that's okay. Consider hiring an SDR directly, trying a lower-cost agency, or focusing on product-market fit first.</p>
+                            <p>We\'re not the right fit, and that\'s okay. Consider hiring an SDR directly, trying a lower-cost agency, or focusing on product-market fit first.</p>
                           )}
                         </div>
                       </div>
@@ -296,11 +296,11 @@ export function SecondaryFeatures() {
       <Container>
         <div className="mx-auto max-w-2xl md:text-center">
           <h2 className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">
-            Who This Is (And Isn't) For
+            Who This Is (And Isn\'t) For
           </h2>
           <p className="mt-4 text-lg tracking-tight text-slate-700">
-            We reject 70% of prospects. Not because we're jerks, but because we only 
-            succeed when you succeed. Here's how to know if we're a match.
+            We reject 70% of prospects. Not because we\'re jerks, but because we only 
+            succeed when you succeed. Here\'s how to know if we\'re a match.
           </p>
         </div>
         <FeaturesMobile />
@@ -310,7 +310,7 @@ export function SecondaryFeatures() {
         <div className="mt-16 text-center">
           <div className="inline-flex flex-col items-center">
             <p className="text-lg font-semibold text-slate-900">
-              Think you're a fit?
+              Think you\'re a fit?
             </p>
             <a
               href="/reality-check"
@@ -322,7 +322,7 @@ export function SecondaryFeatures() {
               </svg>
             </a>
             <p className="mt-3 text-sm text-slate-500">
-              30-minute call. No fluff. We'll tell you if we can help.
+              30-minute call. No fluff. We\'ll tell you if we can help.
             </p>
           </div>
         </div>
