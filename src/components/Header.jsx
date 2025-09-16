@@ -83,12 +83,8 @@ export function Header() {
       <Container>
         <nav className="relative z-50 flex justify-between">
           <div className="flex items-center md:gap-x-12">
-            <Link href="#" aria-label="Home" className="flex items-center gap-2">
+            <Link href="#" aria-label="Home">
               <Logo className="h-10 w-auto" />
-              <div className="hidden sm:block">
-                <span className="font-semibold text-slate-900">B2B Scaler</span>
-                <span className="ml-2 text-xs text-slate-500">2 clients max</span>
-              </div>
             </Link>
             <div className="hidden md:flex md:gap-x-6">
               <NavLink href="#process">Process</NavLink>
