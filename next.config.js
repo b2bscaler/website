@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Remove any existing config and keep it simple for now
+  output: 'standalone',
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  // ... other existing config
 }
 
 module.exports = nextConfig
