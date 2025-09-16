@@ -8,7 +8,7 @@ import { PrimaryFeatures } from '@/components/PrimaryFeatures'
 import { SecondaryFeatures } from '@/components/SecondaryFeatures'
 import { Testimonials } from '@/components/Testimonials'
 import { ROICalculator } from '@/components/ROICalculator'
-import { SoftOffer } form '@/components/SoftOffer'
+import { SoftOffer } from '@/components/SoftOffer'
 
 export default function Home() {
   return (
