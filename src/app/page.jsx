@@ -3,10 +3,10 @@ import { Faqs } from '@/components/Faqs'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { Hero } from '@/components/Hero'
-import { Pricing } from '@/components/Pricing'
+//import { Pricing } from '@/components/Pricing'
 import { PrimaryFeatures } from '@/components/PrimaryFeatures'
 import { SecondaryFeatures } from '@/components/SecondaryFeatures'
-import { Testimonials } from '@/components/Testimonials'
+//import { Testimonials } from '@/components/Testimonials'
 import { ROICalculator } from '@/components/ROICalculator'
 import { SoftOffer } from '@/components/SoftOffer'
 
@@ -21,8 +21,8 @@ export default function Home() {
         <CallToAction />
         <ROICalculator />
         <SoftOffer />
-#        <Testimonials />
-#        <Pricing />
+//        <Testimonials />
+//        <Pricing />
         <Faqs />
       </main>
       <Footer />
