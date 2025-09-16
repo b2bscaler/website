@@ -88,7 +88,7 @@ const features = [
     name: 'Not For You',
     summary: 'Save us both time if this sounds like you.',
     description:
-      'Pre-revenue startups, "idea stage" companies, or anyone wanting the cheapest option. We can't help you, and that's okay.',
+      'Pre-revenue startups, "idea stage" companies, or anyone wanting the cheapest option. We can\'t help you, and that\'s okay.',
     image: screenshotContacts, // Replace with a simple graphic or chart
     icon: function NotForYouIcon() {
       return (
