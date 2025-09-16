@@ -11,7 +11,7 @@ function QuoteIcon(props) {
   )
 }
 
-export function Testimonials() {
+export function ROICalculator() {
   // Calculator state
   const [avgDealSize, setAvgDealSize] = useState(15000)
   const [closeRate, setCloseRate] = useState(20)
