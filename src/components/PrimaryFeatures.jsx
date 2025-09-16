@@ -7,6 +7,7 @@ import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
 import backgroundImage from '@/images/background-features.jpg'
+// You'll need to replace these with actual screenshots of your dashboards/process
 import screenshotExpenses from '@/images/screenshots/expenses.png'
 import screenshotPayroll from '@/images/screenshots/payroll.png'
 import screenshotReporting from '@/images/screenshots/reporting.png'
@@ -14,28 +15,52 @@ import screenshotVatReturns from '@/images/screenshots/vat-returns.png'
 
 const features = [
   {
-    title: 'Payroll',
+    title: 'Week 1-2: Deep Dive',
     description:
-      "Keep track of everyone's salaries and whether or not they've been paid. Direct deposit not supported.",
-    image: screenshotPayroll,
+      "We don't use templates. We study YOUR buyers, YOUR language, YOUR value prop. This isn't copy-paste from our last client.",
+    image: screenshotPayroll, // Replace with screenshot of your ICP research/notes
+    details: [
+      'Interview your top sales reps',
+      'Analyze your best closed deals',
+      'Map your actual buyer personas',
+      'Test 5-10 messaging angles',
+    ],
   },
   {
-    title: 'Claim expenses',
+    title: 'Week 3-4: Infrastructure',
     description:
-      "All of your receipts organized into one place, as long as you don't mind typing in the data by hand.",
-    image: screenshotExpenses,
+      "Self-hosted tech stack. Custom dashboards. Real-time reporting. Because spreadsheets are for amateurs.",
+    image: screenshotExpenses, // Replace with screenshot of your dashboard
+    details: [
+      'Apollo for quality contact data',
+      'NocoDB for campaign tracking',
+      'Metabase for live analytics',
+      'Custom integrations with your CRM',
+    ],
   },
   {
-    title: 'VAT handling',
+    title: 'Month 2: Systematic Scaling',
     description:
-      "We only sell our software to companies who don't deal with VAT at all, so technically we do all the VAT stuff they need.",
-    image: screenshotVatReturns,
+      "Now we turn up the volume. But only after we know what works. Data drives decisions, not hunches.",
+    image: screenshotVatReturns, // Replace with screenshot of campaign metrics
+    details: [
+      '150-200 calls per week',
+      'A/B test every message',
+      'Weekly optimization calls',
+      'Detailed conversion tracking',
+    ],
   },
   {
-    title: 'Reporting',
+    title: 'Always: Full Transparency',
     description:
-      'Easily export your data into an Excel spreadsheet where you can do whatever the hell you want with it.',
-    image: screenshotReporting,
+      "See every call, every email, every outcome. Your dashboard updates in real-time. No black box BS.",
+    image: screenshotReporting, // Replace with screenshot of reporting dashboard
+    details: [
+      'Daily activity reports',
+      'Call recordings available',
+      'Pipeline value tracking',
+      'Honest feedback (even when it hurts)',
+    ],
   },
 ]
 
@@ -60,7 +85,7 @@ export function PrimaryFeatures() {
   return (
     <section
       id="features"
-      aria-label="Features for running your books"
+      aria-label="Our obsessive process"
       className="relative overflow-hidden bg-blue-600 pt-20 pb-28 sm:py-32"
     >
       <Image
@@ -74,11 +99,11 @@ export function PrimaryFeatures() {
       <Container className="relative">
         <div className="max-w-2xl md:mx-auto md:text-center xl:max-w-none">
           <h2 className="font-display text-3xl tracking-tight text-white sm:text-4xl md:text-5xl">
-            Everything you need to run your books.
+            Our Obsessive Process
           </h2>
           <p className="mt-6 text-lg tracking-tight text-blue-100">
-            Well everything you need if you aren’t that picky about minor
-            details like tax compliance.
+            We cap at 2 clients because this level of detail doesn't scale. 
+            And that's exactly the point.
           </p>
         </div>
         <TabGroup
@@ -135,7 +160,9 @@ export function PrimaryFeatures() {
                         {feature.description}
                       </p>
                     </div>
-                    <div className="mt-10 w-180 overflow-hidden rounded-xl bg-slate-50 shadow-xl shadow-blue-900/20 sm:w-auto lg:mt-0 lg:w-271.25">
+                    
+                    {/* Desktop view with image */}
+                    <div className="mt-10 hidden lg:block w-full overflow-hidden rounded-xl bg-slate-50 shadow-xl shadow-blue-900/20">
                       <Image
                         className="w-full"
                         src={feature.image}
@@ -144,12 +171,37 @@ export function PrimaryFeatures() {
                         sizes="(min-width: 1024px) 67.8125rem, (min-width: 640px) 100vw, 45rem"
                       />
                     </div>
+                    
+                    {/* Mobile and tablet view with bullet points instead of image */}
+                    <div className="mt-10 lg:hidden w-full overflow-hidden rounded-xl bg-white shadow-xl shadow-blue-900/20 p-6">
+                      <h4 className="font-semibold text-slate-900 mb-4">What actually happens:</h4>
+                      <ul className="space-y-2">
+                        {feature.details.map((detail, index) => (
+                          <li key={index} className="flex items-start">
+                            <svg className="h-5 w-5 text-blue-600 mt-0.5 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span className="text-slate-700">{detail}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </TabPanel>
                 ))}
               </TabPanels>
             </>
           )}
         </TabGroup>
+        
+        {/* Add a bottom CTA or proof point */}
+        <div className="mt-20 text-center">
+          <p className="text-xl text-white font-semibold">
+            This process has generated $64K monthly ARR for our clients.
+          </p>
+          <p className="mt-2 text-blue-100">
+            With a 5-8% list-to-meeting conversion rate (industry average: 1-2%)
+          </p>
+        </div>
       </Container>
     </section>
   )
