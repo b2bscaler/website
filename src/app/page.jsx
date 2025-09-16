@@ -21,8 +21,8 @@ export default function Home() {
         <CallToAction />
         <ROICalculator />
         <SoftOffer />
-        <Testimonials />
-        <Pricing />
+#        <Testimonials />
+#        <Pricing />
         <Faqs />
       </main>
       <Footer />
