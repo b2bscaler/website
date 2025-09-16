@@ -35,7 +35,7 @@ const Button = ({ href, color, variant, className = '', children }) => {
 
 // A single item component for the cost breakdown for better readability
 const CostItem = ({ label, value }) => (
-  <div className="flex justify-between items-center py-2">
+  <div className="flex justify-between items-center py-1.5">
     <span className="text-white/80">{label}</span>
     <span className="font-semibold text-white">{value}</span>
   </div>
@@ -69,21 +69,11 @@ export function CallToAction() {
     }).format(amount);
   };
   
-  // Using a placeholder for the background image to resolve the import error
-  const backgroundImageSrc = 'https://placehold.co/2347x1244/0284c7/FFFFFF?text=Background';
-
   return (
     <section
       id="get-started-today"
-      className="relative overflow-hidden bg-blue-600 py-32"
+      className="relative overflow-hidden bg-blue-600 py-24"
     >
-      <Image
-        className="absolute top-1/2 left-1/2 max-w-none -translate-x-1/2 -translate-y-1/2 opacity-25"
-        src={backgroundImageSrc}
-        alt=""
-        width={2347}
-        height={1244}
-      />
       <Container className="relative">
         <div className="mx-auto max-w-2xl text-center">
           {/* Pre-qualifier */}
@@ -117,7 +107,7 @@ export function CallToAction() {
               The True Cost of an In-House SDR
             </h3>
             
-            <div className="space-y-3">
+            <div className="space-y-1">
                <CostItem label="Base Salary" value={`${formatCurrency(costs.baseSalary[0])} - ${formatCurrency(costs.baseSalary[1])}`} />
                <CostItem label="OTE / Commissions" value={`${formatCurrency(costs.ote[0])} - ${formatCurrency(costs.ote[1])}`} />
                <CostItem label="Benefits & Payroll Taxes" value={`${formatCurrency(costs.benefits[0])} - ${formatCurrency(costs.benefits[1])}`} />
@@ -191,5 +181,4 @@ export function CallToAction() {
     </section>
   )
 }
-
 
