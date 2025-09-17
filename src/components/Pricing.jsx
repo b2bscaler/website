@@ -148,7 +148,7 @@ export function Pricing() {
             </Button>
             
             <p className="mt-4 text-center text-xs text-gray-500">
-              Next opening: March 2025
+              Next opening: March 2026
             </p>
           </div>
         </div>

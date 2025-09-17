@@ -77,7 +77,7 @@ export function Hero() {
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
           <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
         </span>
-        Current Capacity: 2/2 Clients (Next opening: February 2025)
+        Current Capacity: 2/2 Clients (Next opening: February 2026)
       </div>
 
       <div className="mt-36 lg:mt-44">

@@ -25,7 +25,7 @@ export function CallToAction() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
             </span>
-            Currently accepting 1 new client for Q1 2025
+            Currently accepting 1 new client for Q1 2026
           </div>
 
           <h2 className="font-display text-3xl tracking-tight text-white sm:text-4xl">
