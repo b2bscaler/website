@@ -164,7 +164,7 @@ export function ROICalculator() {
             <div className="rounded-2xl bg-white p-6 shadow-xl shadow-slate-900/10">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="font-display text-lg text-slate-900">Hire Someone</h3>
-                <span className="text-2xl">??</span>
+                <span className="text-2xl">ðŸ¤·</span>
               </div>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
@@ -186,9 +186,9 @@ export function ROICalculator() {
                 <div className="pt-3 border-t border-slate-200">
                   <div className="text-red-600 font-semibold">Hidden costs:</div>
                   <ul className="mt-2 space-y-1 text-slate-600">
-                    <li>• 3-month ramp time</li>
-                    <li>• 18-month turnover</li>
-                    <li>• Management overhead</li>
+                    <li>â€¢ 3-month ramp time</li>
+                    <li>â€¢ 18-month turnover</li>
+                    <li>â€¢ Management overhead</li>
                   </ul>
                 </div>
               </div>
@@ -198,7 +198,7 @@ export function ROICalculator() {
             <div className="rounded-2xl bg-white p-6 shadow-xl shadow-slate-900/10">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="font-display text-lg text-slate-900">Email/LinkedIn Agency</h3>
-                <span className="text-2xl">??</span>
+                <span className="text-2xl">ðŸ’©</span>
               </div>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
@@ -220,9 +220,9 @@ export function ROICalculator() {
                 <div className="pt-3 border-t border-slate-200">
                   <div className="text-red-600 font-semibold">Reality check:</div>
                   <ul className="mt-2 space-y-1 text-slate-600">
-                    <li>• Not BANT qualified</li>
-                    <li>• &quot;Just browsing&quot; meetings</li>
-                    <li>• No budget authority</li>
+                    <li>â€¢ Not BANT qualified</li>
+                    <li>â€¢ &quot;Just browsing&quot; meetings</li>
+                    <li>â€¢ No budget authority</li>
                   </ul>
                 </div>
               </div>
@@ -232,7 +232,7 @@ export function ROICalculator() {
             <div className="rounded-2xl bg-blue-50 p-6 shadow-xl shadow-slate-900/10 ring-2 ring-blue-600">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="font-display text-lg text-slate-900">B2B Scaler</h3>
-                <span className="text-2xl">?</span>
+                <span className="text-2xl">âœ…</span>
               </div>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
@@ -254,9 +254,9 @@ export function ROICalculator() {
                 <div className="pt-3 border-t border-slate-200">
                   <div className="text-green-600 font-semibold">ROI: {b2bScalerROI}%</div>
                   <ul className="mt-2 space-y-1 text-slate-600">
-                    <li>• BANT qualified only</li>
-                    <li>• Pipeline nurturing included</li>
-                    <li>• 25% better close rate</li>
+                    <li>â€¢ BANT qualified only</li>
+                    <li>â€¢ Pipeline nurturing included</li>
+                    <li>â€¢ 25% better close rate</li>
                   </ul>
                 </div>
               </div>
