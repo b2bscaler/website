@@ -11,7 +11,7 @@ function QuoteIcon(props) {
   )
 }
 
-export function ROICalculator() {
+export function Testimonials() {
   // Calculator state
   const [avgDealSize, setAvgDealSize] = useState(15000)
   const [closeRate, setCloseRate] = useState(20)
@@ -21,18 +21,18 @@ export function ROICalculator() {
   // B2B Scaler constants
   const b2bScalerCost = 5000 // monthly
   const b2bScalerMeetings = 10 // qualified meetings per month
-  const sdrCost = 65000 // annual
+  const sdrCost = 85000 // annual all-in cost (salary + benefits + tools)
   const cheapAgencyMeetings = 50 // meetings per month
   const cheapAgencyCost = 1500 // monthly
   const cheapAgencyQualityRate = 0.1 // only 10% are actually qualified
 
   // Calculations
-  const meetingsNeededPerDeal = Math.round(100 / closeRate)
+  const meetingsNeededPerDeal = Math.round(100 / closeRate) || 5
   const revenuePerMeeting = (avgDealSize * closeRate) / 100
   
-  // SDR option
-  const sdrMonthlyCost = Math.round(sdrCost / 12 + 2000) // plus tools/benefits
-  const sdrMeetingsPerMonth = 15 // average SDR performance
+  // SDR option - DYNAMIC based on current performance
+  const sdrMonthlyCost = Math.round(sdrCost / 12) // all-in monthly cost
+  const sdrMeetingsPerMonth = Math.max(currentMeetingsPerMonth, 8) // SDRs typically match or slightly beat current output
   const sdrCostPerMeeting = Math.round(sdrMonthlyCost / sdrMeetingsPerMonth)
   
   // Cheap agency option
@@ -44,9 +44,11 @@ export function ROICalculator() {
   const b2bScalerMonthlyRevenue = b2bScalerMeetings * revenuePerMeeting
   const b2bScalerROI = Math.round(((b2bScalerMonthlyRevenue - b2bScalerCost) / b2bScalerCost) * 100)
   
-  // Lost opportunity cost
-  const missedRevenuePerMonth = (b2bScalerMeetings - currentMeetingsPerMonth) * revenuePerMeeting
-  const salesRepTimeWasted = Math.round((salesRepCost / 12) * 0.6) // 60% of time on bad prospecting
+  // Lost opportunity cost - comparing to what you COULD have
+  const missedRevenuePerMonth = Math.max(0, (b2bScalerMeetings - currentMeetingsPerMonth) * revenuePerMeeting)
+  const salesRepTimeWasted = currentMeetingsPerMonth > 0 
+    ? Math.round((salesRepCost / 12) * 0.4) // 40% of time if they're getting some meetings
+    : Math.round((salesRepCost / 12) * 0.6) // 60% if they're getting few/no meetings
 
   return (
     <section
