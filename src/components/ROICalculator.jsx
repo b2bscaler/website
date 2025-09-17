@@ -116,6 +116,9 @@ export function ROICalculator() {
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-2">
                   Sales Rep Total Cost (Annual)
+                  <span className="block text-xs font-normal text-slate-500 mt-1">
+                    Include salary, benefits, tools
+                  </span>
                 </label>
                 <div className="flex items-center gap-4">
                   <input
@@ -165,7 +168,7 @@ export function ROICalculator() {
               </div>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-slate-600">All-in monthly cost:</span>
+                  <span className="text-slate-600">Monthly cost (70% of rep):</span>
                   <span className="font-semibold text-slate-900">${sdrMonthlyCost.toLocaleString()}</span>
                 </div>
                 <div className="flex justify-between">
