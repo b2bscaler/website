@@ -9,7 +9,7 @@ export const metadata = {
     default: 'B2B Scaler - Appointment-Setting Agency for SMB',
   },
   description:
-    'Not Another 'Scale Fast' Agency. We Book Meetings That Actually Matter.',
+    'Not Another \'Scale Fast\' Agency. We Book Meetings That Actually Matter.',
 }
 
 const inter = Inter({
