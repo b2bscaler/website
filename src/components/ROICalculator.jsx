@@ -20,31 +20,31 @@ export function ROICalculator() {
 
   // B2B Scaler constants
   const b2bScalerCost = 5000 // monthly
-  const b2bScalerMeetings = 10 // qualified meetings per month
-  const sdrCost = 85000 // annual all-in cost (salary + benefits + tools)
-  const cheapAgencyMeetings = 50 // meetings per month
-  const cheapAgencyCost = 1500 // monthly
-  const cheapAgencyQualityRate = 0.1 // only 10% are actually qualified
+  const b2bScalerMeetings = 10 // BANT qualified meetings per month
+  const cheapAgencyCost = 2500 // monthly (mid-range for email/LinkedIn agencies)
+  const cheapAgencyMeetings = 8 // meetings per month they claim
+  const cheapAgencyQualityRate = 0.25 // only 25% are actually qualified/relevant
 
   // Calculations
   const meetingsNeededPerDeal = Math.round(100 / closeRate) || 5
   const revenuePerMeeting = (avgDealSize * closeRate) / 100
   
-  // SDR option - DYNAMIC based on current performance
-  const sdrMonthlyCost = Math.round(sdrCost / 12) // all-in monthly cost
-  const sdrMeetingsPerMonth = Math.max(currentMeetingsPerMonth, 8) // SDRs typically match or slightly beat current output
+  // SDR option - DYNAMIC based on sales rep cost
+  const sdrAllInCost = Math.round(salesRepCost * 0.7) // SDR typically costs 70% of a full sales rep
+  const sdrMonthlyCost = Math.round(sdrAllInCost / 12)
+  const sdrMeetingsPerMonth = Math.max(currentMeetingsPerMonth + 2, 5) // SDRs typically beat current by a bit
   const sdrCostPerMeeting = Math.round(sdrMonthlyCost / sdrMeetingsPerMonth)
   
   // Cheap agency option
-  const cheapAgencyQualifiedMeetings = cheapAgencyMeetings * cheapAgencyQualityRate
+  const cheapAgencyQualifiedMeetings = Math.round(cheapAgencyMeetings * cheapAgencyQualityRate)
   const cheapAgencyCostPerQualified = Math.round(cheapAgencyCost / cheapAgencyQualifiedMeetings)
   
-  // B2B Scaler option
+  // B2B Scaler option - accounting for quality
   const b2bScalerCostPerMeeting = Math.round(b2bScalerCost / b2bScalerMeetings)
-  const b2bScalerMonthlyRevenue = b2bScalerMeetings * revenuePerMeeting
+  const b2bScalerMonthlyRevenue = b2bScalerMeetings * revenuePerMeeting * 1.5 // 50% better conversion due to BANT
   const b2bScalerROI = Math.round(((b2bScalerMonthlyRevenue - b2bScalerCost) / b2bScalerCost) * 100)
   
-  // Lost opportunity cost - comparing to what you COULD have
+  // Lost opportunity cost
   const missedRevenuePerMonth = Math.max(0, (b2bScalerMeetings - currentMeetingsPerMonth) * revenuePerMeeting)
   const salesRepTimeWasted = currentMeetingsPerMonth > 0 
     ? Math.round((salesRepCost / 12) * 0.4) // 40% of time if they're getting some meetings
@@ -165,7 +165,7 @@ export function ROICalculator() {
               </div>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-slate-600">Monthly cost:</span>
+                  <span className="text-slate-600">All-in monthly cost:</span>
                   <span className="font-semibold text-slate-900">${sdrMonthlyCost.toLocaleString()}</span>
                 </div>
                 <div className="flex justify-between">
@@ -175,6 +175,10 @@ export function ROICalculator() {
                 <div className="flex justify-between">
                   <span className="text-slate-600">Cost per meeting:</span>
                   <span className="font-semibold text-slate-900">${sdrCostPerMeeting}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-slate-600">Meeting quality:</span>
+                  <span className="text-slate-600">Mixed</span>
                 </div>
                 <div className="pt-3 border-t border-slate-200">
                   <div className="text-red-600 font-semibold">Hidden costs:</div>
@@ -190,7 +194,7 @@ export function ROICalculator() {
             {/* Option 2: Cheap Agency */}
             <div className="rounded-2xl bg-white p-6 shadow-xl shadow-slate-900/10">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="font-display text-lg text-slate-900">Cheap Agency</h3>
+                <h3 className="font-display text-lg text-slate-900">Email/LinkedIn Agency</h3>
                 <span className="text-2xl">💩</span>
               </div>
               <div className="space-y-3 text-sm">
@@ -199,7 +203,7 @@ export function ROICalculator() {
                   <span className="font-semibold text-slate-900">${cheapAgencyCost.toLocaleString()}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-600">Total meetings:</span>
+                  <span className="text-slate-600">Meetings claimed:</span>
                   <span className="font-semibold text-slate-900">{cheapAgencyMeetings}</span>
                 </div>
                 <div className="flex justify-between">
@@ -213,9 +217,9 @@ export function ROICalculator() {
                 <div className="pt-3 border-t border-slate-200">
                   <div className="text-red-600 font-semibold">Reality check:</div>
                   <ul className="mt-2 space-y-1 text-slate-600">
-                    <li>• Sales team stops taking calls</li>
-                    <li>• Brand damage from spam</li>
-                    <li>• &quot;CEO at Student&quot;</li>
+                    <li>• Not BANT qualified</li>
+                    <li>• &quot;Just browsing&quot; meetings</li>
+                    <li>• No budget authority</li>
                   </ul>
                 </div>
               </div>
@@ -233,11 +237,11 @@ export function ROICalculator() {
                   <span className="font-semibold text-slate-900">${b2bScalerCost.toLocaleString()}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-600">Qualified meetings:</span>
+                  <span className="text-slate-600">BANT qualified meetings:</span>
                   <span className="font-semibold text-green-600">{b2bScalerMeetings}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-600">Cost per meeting:</span>
+                  <span className="text-slate-600">Cost per qualified:</span>
                   <span className="font-semibold text-slate-900">${b2bScalerCostPerMeeting}</span>
                 </div>
                 <div className="flex justify-between">
@@ -247,9 +251,9 @@ export function ROICalculator() {
                 <div className="pt-3 border-t border-slate-200">
                   <div className="text-green-600 font-semibold">ROI: {b2bScalerROI}%</div>
                   <ul className="mt-2 space-y-1 text-slate-600">
-                    <li>• Start in 2 weeks</li>
-                    <li>• Cancel anytime</li>
-                    <li>• We improve monthly</li>
+                    <li>• BANT qualified only</li>
+                    <li>• Pipeline nurturing included</li>
+                    <li>• 50% better close rate</li>
                   </ul>
                 </div>
               </div>
