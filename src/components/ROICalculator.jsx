@@ -37,7 +37,7 @@ export function ROICalculator() {
   
   // Lost opportunity cost
   const missedRevenuePerMonth = Math.max(0, (b2bScalerMeetings - currentMeetingsPerMonth) * revenuePerMeeting)
-  const salesRepTimeWasted = currentMeetingsPerMonth > 0 
+  const salesRepTimeWasted = currentMeetingsPerMonth > 0
     ? Math.round((salesRepCost / 12) * 0.4) // 40% of time on prospecting
     : Math.round((salesRepCost / 12) * 0.6) // 60% if few meetings
 
@@ -53,7 +53,7 @@ export function ROICalculator() {
             The Math Nobody Wants to Do (But Should)
           </h2>
           <p className="mt-4 text-lg tracking-tight text-slate-700">
-            Stop guessing. Start calculating. Here&apos;s what appointment setting actually costs 
+            Stop guessing. Start calculating. Here&apos;s what appointment setting actually costs
             and what you&apos;re leaving on the table.
           </p>
         </div>
@@ -296,7 +296,7 @@ export function ROICalculator() {
             {/* Disclaimer */}
             <div className="mt-8 pt-6 border-t border-white/10">
               <p className="text-xs text-white/50 text-center">
-                *Based on industry averages: Entry-level appointment setter $70-90K, agencies $2-4K/month, 
+                *Based on industry averages: Entry-level appointment setter $70-90K, agencies $2-4K/month,
                 25% BANT qualification improvement. Your results will vary based on industry and sales process.
               </p>
             </div>
