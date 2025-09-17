@@ -253,7 +253,7 @@ export function ROICalculator() {
                   <ul className="mt-2 space-y-1 text-slate-600">
                     <li>• BANT qualified only</li>
                     <li>• Pipeline nurturing included</li>
-                    <li>• 50% better close rate</li>
+                    <li>• 25% better close rate</li>
                   </ul>
                 </div>
               </div>
