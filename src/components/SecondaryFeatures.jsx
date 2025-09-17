@@ -296,11 +296,11 @@ export function SecondaryFeatures() {
       <Container>
         <div className="mx-auto max-w-2xl md:text-center">
           <h2 className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">
-            "Who This Is (And Isn't) For"
+            Who This Is (And Isn&apos;t) For
           </h2>
           <p className="mt-4 text-lg tracking-tight text-slate-700">
             We reject 70% of prospects. Not because we\'re jerks, but because we only 
-            succeed when you succeed. Here\'s how to know if we\'re a match.
+            succeed when you succeed. Here&apos;s how to know if we&apos;re a match.
           </p>
         </div>
         <FeaturesMobile />
@@ -310,7 +310,7 @@ export function SecondaryFeatures() {
         <div className="mt-16 text-center">
           <div className="inline-flex flex-col items-center">
             <p className="text-lg font-semibold text-slate-900">
-              "Think you're a fit?"
+              Think you&apos;re a fit?
             </p>
             <a
               href="/reality-check"
@@ -322,7 +322,7 @@ export function SecondaryFeatures() {
               </svg>
             </a>
             <p className="mt-3 text-sm text-slate-500">
-              "30-minute call. No fluff. We'll tell you if we can help."
+              30-minute call. No fluff. We&apos;ll tell you if we can help.
             </p>
           </div>
         </div>
