@@ -3,14 +3,6 @@
 import { useState } from 'react'
 import { Container } from '@/components/Container'
 
-function QuoteIcon(props) {
-  return (
-    <svg aria-hidden="true" width={105} height={78} {...props}>
-      <path d="M25.086 77.292c-4.821 0-9.115-1.205-12.882-3.616-3.767-2.561-6.78-6.102-9.04-10.622C1.054 58.534 0 53.411 0 47.686c0-5.273.904-10.396 2.712-15.368 1.959-4.972 4.746-9.567 8.362-13.786a59.042 59.042 0 0 1 12.43-11.3C28.325 3.917 33.599 1.507 39.324 0l11.074 13.786c-6.479 2.561-11.677 5.951-15.594 10.17-3.767 4.219-5.65 7.835-5.65 10.848 0 1.356.377 2.863 1.13 4.52.904 1.507 2.637 3.089 5.198 4.746 3.767 2.41 6.328 4.972 7.684 7.684 1.507 2.561 2.26 5.5 2.26 8.814 0 5.123-1.959 9.19-5.876 12.204-3.767 3.013-8.588 4.52-14.464 4.52Zm54.24 0c-4.821 0-9.115-1.205-12.882-3.616-3.767-2.561-6.78-6.102-9.04-10.622-2.11-4.52-3.164-9.643-3.164-15.368 0-5.273.904-10.396 2.712-15.368 1.959-4.972 4.746-9.567 8.362-13.786a59.042 59.042 0 0 1 12.43-11.3C82.565 3.917 87.839 1.507 93.564 0l11.074 13.786c-6.479 2.561-11.677 5.951-15.594 10.17-3.767 4.219-5.65 7.835-5.65 10.848 0 1.356.377 2.863 1.13 4.52.904 1.507 2.637 3.089 5.198 4.746 3.767 2.41 6.328 4.972 7.684 7.684 1.507 2.561 2.26 5.5 2.26 8.814 0 5.123-1.959 9.19-5.876 12.204-3.767 3.013-8.588 4.52-14.464 4.52Z" />
-    </svg>
-  )
-}
-
 export function ROICalculator() {
   // Calculator state
   const [avgDealSize, setAvgDealSize] = useState(15000)
@@ -21,34 +13,33 @@ export function ROICalculator() {
   // B2B Scaler constants
   const b2bScalerCost = 5000 // monthly
   const b2bScalerMeetings = 10 // BANT qualified meetings per month
-  const cheapAgencyCost = 2500 // monthly (mid-range for email/LinkedIn agencies)
-  const cheapAgencyMeetings = 8 // meetings per month they claim
-  const cheapAgencyQualityRate = 0.25 // only 25% are actually qualified/relevant
-
+  
+  // Hire Someone option - based on market research
+  const hireSomeoneCost = 7000 // $84k/year for dedicated appointment setter
+  const hireSomeoneMeetings = Math.max(currentMeetingsPerMonth + 2, 8)
+  const hireSomeoneCostPerMeeting = Math.round(hireSomeoneCost / hireSomeoneMeetings)
+  
+  // Email/LinkedIn Agency option
+  const cheapAgencyCost = 2500 // typical for low-end agencies
+  const cheapAgencyMeetings = 8 // meetings they claim
+  const cheapAgencyQualifiedMeetings = 2 // only 25% are actually qualified
+  const cheapAgencyCostPerQualified = Math.round(cheapAgencyCost / cheapAgencyQualifiedMeetings)
+  
   // Calculations
   const meetingsNeededPerDeal = Math.round(100 / closeRate) || 5
   const revenuePerMeeting = (avgDealSize * closeRate) / 100
   
-  // SDR option - DYNAMIC based on sales rep cost
-  const sdrAllInCost = Math.round(salesRepCost * 0.7) // SDR typically costs 70% of a full sales rep
-  const sdrMonthlyCost = Math.round(sdrAllInCost / 12)
-  const sdrMeetingsPerMonth = Math.max(currentMeetingsPerMonth + 2, 5) // SDRs typically beat current by a bit
-  const sdrCostPerMeeting = Math.round(sdrMonthlyCost / sdrMeetingsPerMonth)
-  
-  // Cheap agency option
-  const cheapAgencyQualifiedMeetings = Math.round(cheapAgencyMeetings * cheapAgencyQualityRate)
-  const cheapAgencyCostPerQualified = Math.round(cheapAgencyCost / cheapAgencyQualifiedMeetings)
-  
-  // B2B Scaler option - accounting for quality
+  // B2B Scaler calculations
   const b2bScalerCostPerMeeting = Math.round(b2bScalerCost / b2bScalerMeetings)
-  const b2bScalerMonthlyRevenue = b2bScalerMeetings * revenuePerMeeting * 1.5 // 50% better conversion due to BANT
+  // BANT qualified meetings close 25% better
+  const b2bScalerMonthlyRevenue = b2bScalerMeetings * avgDealSize * (closeRate / 100) * 1.25
   const b2bScalerROI = Math.round(((b2bScalerMonthlyRevenue - b2bScalerCost) / b2bScalerCost) * 100)
   
   // Lost opportunity cost
   const missedRevenuePerMonth = Math.max(0, (b2bScalerMeetings - currentMeetingsPerMonth) * revenuePerMeeting)
   const salesRepTimeWasted = currentMeetingsPerMonth > 0 
-    ? Math.round((salesRepCost / 12) * 0.4) // 40% of time if they're getting some meetings
-    : Math.round((salesRepCost / 12) * 0.6) // 60% if they're getting few/no meetings
+    ? Math.round((salesRepCost / 12) * 0.4) // 40% of time on prospecting
+    : Math.round((salesRepCost / 12) * 0.6) // 60% if few meetings
 
   return (
     <section
@@ -164,7 +155,7 @@ export function ROICalculator() {
             <div className="rounded-2xl bg-white p-6 shadow-xl shadow-slate-900/10">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="font-display text-lg text-slate-900">Hire Someone</h3>
-                <span className="text-2xl">ðŸ¤·</span>
+                <span className="text-2xl">??</span>
               </div>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
@@ -186,19 +177,19 @@ export function ROICalculator() {
                 <div className="pt-3 border-t border-slate-200">
                   <div className="text-red-600 font-semibold">Hidden costs:</div>
                   <ul className="mt-2 space-y-1 text-slate-600">
-                    <li>â€¢ 3-month ramp time</li>
-                    <li>â€¢ 18-month turnover</li>
-                    <li>â€¢ Management overhead</li>
+                    <li>• 3-month ramp time</li>
+                    <li>• 18-month turnover</li>
+                    <li>• Management overhead</li>
                   </ul>
                 </div>
               </div>
             </div>
 
-            {/* Option 2: Cheap Agency */}
+            {/* Option 2: Email/LinkedIn Agency */}
             <div className="rounded-2xl bg-white p-6 shadow-xl shadow-slate-900/10">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="font-display text-lg text-slate-900">Email/LinkedIn Agency</h3>
-                <span className="text-2xl">ðŸ’©</span>
+                <span className="text-2xl">??</span>
               </div>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
@@ -220,9 +211,9 @@ export function ROICalculator() {
                 <div className="pt-3 border-t border-slate-200">
                   <div className="text-red-600 font-semibold">Reality check:</div>
                   <ul className="mt-2 space-y-1 text-slate-600">
-                    <li>â€¢ Not BANT qualified</li>
-                    <li>â€¢ &quot;Just browsing&quot; meetings</li>
-                    <li>â€¢ No budget authority</li>
+                    <li>• Not BANT qualified</li>
+                    <li>• &quot;Just browsing&quot; meetings</li>
+                    <li>• No budget authority</li>
                   </ul>
                 </div>
               </div>
@@ -232,7 +223,7 @@ export function ROICalculator() {
             <div className="rounded-2xl bg-blue-50 p-6 shadow-xl shadow-slate-900/10 ring-2 ring-blue-600">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="font-display text-lg text-slate-900">B2B Scaler</h3>
-                <span className="text-2xl">âœ…</span>
+                <span className="text-2xl">?</span>
               </div>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
@@ -254,9 +245,9 @@ export function ROICalculator() {
                 <div className="pt-3 border-t border-slate-200">
                   <div className="text-green-600 font-semibold">ROI: {b2bScalerROI}%</div>
                   <ul className="mt-2 space-y-1 text-slate-600">
-                    <li>â€¢ BANT qualified only</li>
-                    <li>â€¢ Pipeline nurturing included</li>
-                    <li>â€¢ 25% better close rate</li>
+                    <li>• BANT qualified only</li>
+                    <li>• Pipeline nurturing included</li>
+                    <li>• 25% better close rate</li>
                   </ul>
                 </div>
               </div>
@@ -305,8 +296,8 @@ export function ROICalculator() {
             {/* Disclaimer */}
             <div className="mt-8 pt-6 border-t border-white/10">
               <p className="text-xs text-white/50 text-center">
-                *Assumptions: SDR at 70% of rep cost, 25% close rate improvement with BANT qualification, 
-                40-60% of rep time on prospecting. Your results will vary based on industry and sales process.
+                *Based on industry averages: Entry-level appointment setter $70-90K, agencies $2-4K/month, 
+                25% BANT qualification improvement. Your results will vary based on industry and sales process.
               </p>
             </div>
           </div>
