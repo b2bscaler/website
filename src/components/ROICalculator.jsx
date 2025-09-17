@@ -11,7 +11,7 @@ function QuoteIcon(props) {
   )
 }
 
-export function ROICalculator() {
+export function Testimonials() {
   // Calculator state
   const [avgDealSize, setAvgDealSize] = useState(15000)
   const [closeRate, setCloseRate] = useState(20)
@@ -277,7 +277,7 @@ export function ROICalculator() {
                   ${salesRepTimeWasted.toLocaleString()}
                 </div>
                 <div className="mt-2 text-white/80">
-                  Monthly cost of your sales reps doing their own prospecting (60% of their time)
+                  Monthly cost of your sales reps doing their own prospecting (40-60% of their time)
                 </div>
               </div>
             </div>
@@ -285,7 +285,7 @@ export function ROICalculator() {
               <p className="text-lg text-white/90 mb-6">
                 You need {meetingsNeededPerDeal} meetings to close one deal worth ${avgDealSize.toLocaleString()}.
                 <span className="block mt-2 font-semibold">
-                  We&apos;ll get you those meetings. Qualified. Every month.
+                  We&apos;ll get you those meetings. BANT qualified. Every month.
                 </span>
               </p>
               <a
@@ -297,6 +297,14 @@ export function ROICalculator() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                 </svg>
               </a>
+            </div>
+            
+            {/* Disclaimer */}
+            <div className="mt-8 pt-6 border-t border-white/10">
+              <p className="text-xs text-white/50 text-center">
+                *Assumptions: SDR at 70% of rep cost, 25% close rate improvement with BANT qualification, 
+                40-60% of rep time on prospecting. Your results will vary based on industry and sales process.
+              </p>
             </div>
           </div>
         </div>
