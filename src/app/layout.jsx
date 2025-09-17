@@ -6,10 +6,10 @@ import '@/styles/tailwind.css'
 export const metadata = {
   title: {
     template: '%s - TaxPal',
-    default: 'TaxPal - Accounting made simple for small businesses',
+    default: 'B2B Scaler - Appointment-Setting Agency for SMB',
   },
   description:
-    'Most bookkeeping software is accurate, but hard to use. We make the opposite trade-off, and hope you don’t get audited.',
+    'Not Another 'Scale Fast' Agency. We Book Meetings That Actually Matter.',
 }
 
 const inter = Inter({
