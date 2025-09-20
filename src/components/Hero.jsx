@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Hero() {
+export function Hero() {
   return (
     <div className="relative bg-white">
       <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
